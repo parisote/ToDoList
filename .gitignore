@@ -4,6 +4,7 @@ coverage
 coverage.json
 typechain
 bs-config.js
+/client/bundle.js
 
 #Hardhat files
 cache
