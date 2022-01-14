@@ -7,7 +7,8 @@ contract ToDoList{
     event newTask();
 
     struct Task{
-        string task;
+        string title;
+        string description;
         bool complete;
         uint complete_time;
         uint time;
@@ -15,8 +16,8 @@ contract ToDoList{
 
     mapping(address => Task[]) public taskToDo;
 
-    function createTask(string memory task) public{
-        taskToDo[msg.sender].push(Task(task,false,0,block.timestamp));
+    function createTask(string memory task, string memory description) public{
+        taskToDo[msg.sender].push(Task(task,description,false,0,block.timestamp));
         emit newTask();
     }
 
