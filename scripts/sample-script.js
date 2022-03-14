@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const ToDoList = await hre.ethers.getContractFactory("ToDoList");
-  const todo = await ToDoList.deploy("");
+  const todo = await ToDoList.deploy();
 
   await todo.deployed();
 

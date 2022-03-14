@@ -13,9 +13,9 @@ describe("To Do List", function () {
   })
 
   it("Test create task", async function () {
-    await this.c_a.createTask("Nueva tarea");
+    await this.c_a.createTask("Nueva tarea", "nueva tarea para hacer");
     const all_task = await this.c_a.getAllTask();
-    expect(all_task[0].task).to.equal("Nueva tarea");
+    expect(all_task[0].title).to.equal("Nueva tarea");
   });
 
 });

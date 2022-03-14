@@ -27,7 +27,8 @@ App = {
         const res = await fetch("ToDoList.json")
         var contractAbi = await res.json()
         App.provider = new ethers.providers.Web3Provider(App.web3Provider)
-        App.ToDoContract = new ethers.Contract('0x1f5E9E9602bEb4D14c38952cB5504E4471E3328F',contractAbi["abi"],App.provider)
+        console.log("HOLA")
+        App.ToDoContract = new ethers.Contract('0x5FbDB2315678afecb367f032d93F642f64180aa3',contractAbi["abi"],App.provider)
         if(!App.ToDoContract){
             const factory = await new ethers.ContractFactory(contractAbi["abi"],contractAbi["bytecode"],App.provider.getSigner())
             App.ToDoContract = await factory.deploy()
@@ -61,9 +62,7 @@ App = {
             </div>
             <div class="card-body">
               <span>${taskDescription}</span>
-              <p class="text-muted">Task was created ${new Date(
-                taskCreatedAt * 1000
-              ).toLocaleString()}</p>
+              <p class="text-muted">Task was created ${new Date(taskCreatedAt * 1000).toLocaleString()}</p>
               </label>
             </div>
           </div>`;
